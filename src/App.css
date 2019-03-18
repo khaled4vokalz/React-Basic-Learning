@@ -7,3 +7,8 @@
   font-size: 12px;
   line-height: 1.42857;
 }
+
+.pull-right{
+  float: right;
+  overflow: hidden;
+}

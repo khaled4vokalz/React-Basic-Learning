@@ -11,8 +11,8 @@ class TodoItem extends Component {
   render() {
     const { id, title } = this.props.todo;
     return (
-      <div className="input-group col-md-12" style={divStyle}>
-        <div className="form-check col-md-11">
+      <div className="input-group col-lg-12 col-12" style={divStyle}>
+        <div className="col-lg-11 col-10">
           <input
             type="checkbox"
             className="form-check-input"
@@ -27,12 +27,14 @@ class TodoItem extends Component {
             {title}
           </label>
         </div>
-        <button
-          onClick={this.props.delTodo.bind(this, id)}
-          className="btn btn-danger btn-circle pull-right col-md-1"
-        >
-          <i className="fa fa-times" />
-        </button>
+        <div className="col-lg-1 col-2">
+          <button
+            onClick={this.props.delTodo.bind(this, id)}
+            className="btn btn-danger btn-circle pull-right"
+          >
+            <i className="fa fa-times" />
+          </button>
+        </div>
       </div>
     );
   }
