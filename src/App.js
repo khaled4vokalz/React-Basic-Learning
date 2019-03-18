@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Todos from "./components/Todos";
-import AddTodo from "./components/AddTodo";
-import Header from "./components/layout/Header";
-import About from "./components/pages/About";
-import uuid from "uuid";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+import Header from './components/layout/Header';
+import About from './components/pages/About';
+import uuid from 'uuid';
 
-import "./App.css";
+import './App.css';
 
 class App extends Component {
   state = {
     todos: [
       {
         id: uuid.v4(),
-        title: "Take out the trash",
-        completed: false
+        title: 'Take out the trash',
+        completed: false,
       },
       {
         id: uuid.v4(),
-        title: "Have lunch",
-        completed: false
+        title: 'Have lunch',
+        completed: false,
       },
       {
         id: uuid.v4(),
-        title: "Go for prayer",
-        completed: false
-      }
-    ]
+        title: 'Go for prayer',
+        completed: false,
+      },
+    ],
   };
 
   // Toggle Todo
@@ -38,13 +38,13 @@ class App extends Component {
           todo.completed = !todo.completed;
         }
         return todo;
-      })
+      }),
     });
 
   // Remove a todo from the list
   delTodo = id =>
     this.setState({
-      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+      todos: [...this.state.todos.filter(todo => todo.id !== id)],
     });
 
   //Add Todo
@@ -55,19 +55,19 @@ class App extends Component {
         {
           id: uuid.v4(),
           title,
-          completed: false
-        }
-      ]
+          completed: false,
+        },
+      ],
     });
 
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className='container'>
           <Header />
           <Route
             exact
-            path="/"
+            path='/'
             render={props => (
               <React.Fragment>
                 <AddTodo addTodo={this.addTodo} />
@@ -79,7 +79,7 @@ class App extends Component {
               </React.Fragment>
             )}
           />
-          <Route path='/about' component={About}/>
+          <Route path='/about' component={About} />
         </div>
       </Router>
     );
